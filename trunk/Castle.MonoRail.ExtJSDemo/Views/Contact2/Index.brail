@@ -1,0 +1,77 @@
+﻿
+<!--
+<div id="contact-container">
+</div>
+-->
+
+<script>
+
+	${ExtJS.Container({
+		@title: "Contact us - ExtJSHelper usage example",
+		@tools: [{
+			@id:"gear",
+			@handler: ExtJS.Literal("function(){alert('gear!!!!');}")
+		}],
+        @height: 270,
+        @width: 420,
+        @centered: true,
+//		@closeAction: "hide",
+        @minimizable: true,
+        @maximizable: true
+	})}
+
+	Ext.form.Field.prototype.msgTarget = 'side';
+
+<%
+	if ExtJS.ContainerId != "validated-contact-panel":
+	output ExtJS.DisableValidation()
+	end
+%>
+
+	${ExtJS.BeginForm()}
+	${ExtJS.Push("contact")}
+
+	${ExtJS.FormPanel({
+//		@applyTo: "contact-container",
+		@applyTo: ExtJS.ContainerMember("body"),
+		@assignTo: "currentForm",
+		@url: Url.For({@action: "SendContact"}),
+		@submitText: "Save Contact",
+		@waitMsg: "Saving...",
+		@autoHeight: true,
+		@frame: true,
+		@bodyBorder: false,
+		@hideBorders: true,
+		@items: [
+			ExtJS.TextField("Name", {
+				@fieldLabel: 'Your name',
+				@focused: true, // this is equivalent to calling "currentForm.form.findField("contact.Name").focus();"
+				@width: 250
+			}),
+			ExtJS.TextField("Email", {
+				@fieldLabel: 'Your e-mail',
+				@width: 150
+			}),
+			ExtJS.ComboBox("Country.Id", countries, {
+				@fieldLabel: 'Country',
+				@width: 150,
+				@typeAhead: true,
+				@valueField: 'Id',
+				@displayField: 'Name'
+			}),
+			ExtJS.TextArea("Message", {
+				@fieldLabel: 'Message',
+				@disableValidation: "true", // This field will always be validated in the server
+				@width: 250,
+				@height: 100
+			})
+		]
+	})}
+
+//	currentForm.form.findField("contact.Name").focus();
+
+	${ExtJS.Pop()}
+	${ExtJS.EndForm()}
+
+</script>
+

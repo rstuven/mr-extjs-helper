@@ -1,0 +1,34 @@
+<h2>Message sent! We will contact you shortly</h2>
+
+<div class="formrow">
+Name:
+${contact.name}
+</div>
+
+<div class="formrow">
+E-mail:
+${contact.email}
+</div>
+
+<div class="formrow">
+Country id: ${contact.country.id}
+</div>
+
+<div class="formrow">
+Message: ${contact.message}
+</div>
+
+
+<script>
+
+	${ExtJS.Container({
+		@title: "Confirmation",
+        @height: 120,
+        @width: 320,
+        @centered: true,
+        @minimizable: false,
+        @maximizable: false,
+        @resizable: false
+	})}
+
+</script>
