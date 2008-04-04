@@ -1,0 +1,149 @@
+<%  component CaptureFor, {@Id: "title"}: %>
+Title - Home
+<% end %>
+
+<%  component CaptureFor, {@Id: "scripts"}: %>
+
+<% end %>
+
+<%  component CaptureFor, {@Id: "head"}: %>
+<!-- Here you can include some content to appear on the layout, inside head. For example, stylesheets -->
+
+<script type="text/javascript" src="${siteroot}/Content/js/Ext.ux.MonoRail.Container.js"></script>
+
+<script type="text/javascript">
+
+	Ext.BLANK_IMAGE_URL = "${siteroot}/Content/js/ext-2.0.2/resources/images/default/s.gif";
+
+	Ext.QuickTips.init();
+	Ext.QuickTips.enable();
+
+    Ext.onReady(function(){
+    
+       var viewport = new Ext.Viewport({
+//			applyTo: "maincontent",
+            layout:'border',
+            items:[{
+				region:'north',
+				autoHeight: true,
+				applyTo: 'topbar'
+            },{
+                region:'east',
+                title:'Demo',
+                width:300,
+                collapsible: true,
+                split:true,
+                items:[{
+					applyTo: 'sidebar',
+					autoHeight: true,
+					frame:true
+                },{
+					applyTo: 'shamelessplug',
+					autoHeight: true,
+					frame: true
+                }]
+            },{
+                region:'center',
+                layout:'column',
+                items:[{
+                    columnWidth:.3,
+                    baseCls:'x-plain',
+                    bodyStyle:'padding:5px 0 5px 5px',
+                    items:[{
+						applyTo: 'greeting',
+						autoHeight: true,
+						frame: true
+					},{
+						applyTo: Ext.select('.calloutcontainer').first(),
+						autoHeight: true,
+						frame: true
+                    }]
+				},{
+                    columnWidth:.7,
+                    baseCls:'x-plain',
+                    bodyStyle:'padding:5px 0 5px 5px',
+                    items:[{
+						xtype:'Ext.ux.MonoRail.Panel',
+						id: 'validated-contact-panel',
+						header: true,
+						url: '${Url.For({@controller:"Contact2", @action:"Index"})}'
+                    }]
+                }]
+            }]
+	    });
+
+        var contactWindow = new Ext.ux.MonoRail.Window({
+			url: '${Url.For({@controller:"Contact2", @action:"Index"})}',
+			closeAction: "hide"
+        });
+	    
+	    var link1 = Ext.select('.calloutbox a').first();
+	    link1.set({
+			href:'#'
+	    });
+	    link1.on('click', function(o,e){
+			contactWindow.show();
+	    });
+	    
+	    
+	    Ext.get('greeting').boxWrap().applyStyles('margin:2em 1em;');
+	    
+	});
+</script>
+
+
+<% end %>
+
+<div id="greeting">
+	<div class="x-panel-body">
+		You are about to make your web development 
+		efforts <u>a breeze</u>.
+		<br/>&nbsp;<br/>
+		Explore this sample project to know how.
+	</div>
+</div>
+
+<div class="calloutcontainer">
+	<div class="x-panel-body">
+
+		<div class="calloutbox">
+			${Url.Link('A simple use of parameters', {@controller: 'Login',@action:'index'})}
+		</div>
+
+		<div class="calloutbox">
+			${Url.Link('A simple example form using FormHelper', {@controller: 'Contact',@action: 'index'})}
+		</div>
+
+		<div class="calloutbox">
+			${Url.Link('Access an action that will throw an exception so you can see a rescue page', {@action: 'BlowItAway'})}
+		</div>
+		
+	</div>
+</div>
+
+<!--<div style="clear: both;"> </div>-->
+
+<div id="shamelessplug">
+<h1 class="x-panel-header">Also from the Castle Project...</h1>
+
+<div class="x-panel-body">
+
+	<div class="shamelessplugbox">
+		<div id="windsor">&nbsp;</div>
+		<a href="http://www.castleproject.org/container/">Windsor Container</a>
+		<p>
+		A powerful and extensible inversion of control container.
+		</p>
+	</div>
+
+	<div class="shamelessplugbox">
+		<div id="activerecord">&nbsp;</div>
+		<a href="http://www.castleproject.org/activerecord/">ActiveRecord</a>
+		<p>
+		An intuitive ORM tool is possible.
+		</p>
+	</div>
+</div>
+</div>
+
+
