@@ -1196,6 +1196,13 @@ namespace Castle.MonoRail.Framework.Helpers
 
 			StringBuilder sb = new StringBuilder(component);
 
+			AddActionHandlingToFormPanel(sb, variable);
+
+			return sb.ToString();
+		}
+
+		private void AddActionHandlingToFormPanel(StringBuilder sb, String variable)
+		{
 			String fixIERefresingBug = String.Format(@"
 if (Ext.isIE) {{
 	{0}.hide();
@@ -1226,8 +1233,6 @@ if (Ext.isIE) {{
 , fixIERefresingBug
 , JavaScriptConvert.ToString(this.ContainerId)
 );
-
-			return sb.ToString();
 		}
 
 		/// <summary>
