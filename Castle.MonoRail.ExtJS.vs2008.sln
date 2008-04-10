@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Castle.MonoRail.ExtJS", "Castle.MonoRail.ExtJS\Castle.MonoRail.ExtJS.csproj", "{D5D455CD-2425-45F0-A1ED-ADFE69FAF84B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Castle.MonoRail.ExtJS", "Castle.MonoRail.ExtJS\Castle.MonoRail.ExtJS.vs2008.csproj", "{D5D455CD-2425-45F0-A1ED-ADFE69FAF84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Castle.MonoRail.ExtJSDemo", "Castle.MonoRail.ExtJSDemo\Castle.MonoRail.ExtJSDemo.csproj", "{BFD76332-09D1-4069-A06B-F6730BC71626}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Castle.MonoRail.ExtJSDemo", "Castle.MonoRail.ExtJSDemo\Castle.MonoRail.ExtJSDemo.vs2008.csproj", "{BFD76332-09D1-4069-A06B-F6730BC71626}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
