@@ -1934,7 +1934,7 @@
     <None Include="Views\rescues\generalerror.brail" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Castle.MonoRail.ExtJS\Castle.MonoRail.ExtJS.csproj">
+    <ProjectReference Include="..\Castle.MonoRail.ExtJS\Castle.MonoRail.ExtJS.vs2008.csproj">
       <Project>{D5D455CD-2425-45F0-A1ED-ADFE69FAF84B}</Project>
       <Name>Castle.MonoRail.ExtJS</Name>
     </ProjectReference>
