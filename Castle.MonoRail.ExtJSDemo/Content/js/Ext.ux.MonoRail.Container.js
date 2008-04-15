@@ -17,6 +17,9 @@ Ext.ux.MonoRail.Container = {
 			},
 			scripts: _this.scripts
 		};
+
+		Ext.apply(loadConfig.params, this.params);
+
 		this.autoLoad = loadConfig;
 		
 		this.width = 0;
