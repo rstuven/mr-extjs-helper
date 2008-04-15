@@ -876,7 +876,7 @@ namespace Castle.MonoRail.Framework.Helpers
 				selectedValue = myFormHelper.ObtainValue(target);
 				if (selectedValue != null)
 				{
-					attributes["value"] = JavaScriptConvert.ToString(selectedValue);
+					attributes["value"] = selectedValue;
 				}
 			}
 
